@@ -1,0 +1,29 @@
+{
+	"default" : {
+		"prefix": [
+			"Union Find",
+		],
+		"body": [
+			"const int M = 2e5 + 5;",
+			"int par[M], siz[M];",
+			"int find(int x){",
+    			"\tif(x == par[x])    return x;",
+    			"\telse return par[x] = find(par[x]);",
+			"}",
+			"void make(int x){",
+    			"\tpar[x] = x;",
+    			"\tsiz[x] = 1;",
+			"}",
+			"void unite(int x, int y){",
+    			"\tint a = find(x);",
+    			"\tint b = find(y);",
+    			"\tif(a != b){",
+        			"\t\tif(siz[a] < siz[b])",
+            			"\t\t\tswap(a, b);",
+        			"\t\tpar[b] = a;",
+        			"\t\tsiz[a] += siz[b];",
+    			"\t}",
+    		"}",
+		],
+	}
+}
